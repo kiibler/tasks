@@ -7,7 +7,13 @@ export default async function Home() {
     return (
         <main>
             {tasks.map((task) => {
-                return <TaskCard key={task.id} taskName={task.task_name} courseName={task.course_name!} />
+                return (
+                    <TaskCard
+                        key={task.id}
+                        taskName={task.task_name}
+                        courseName={task.course_name!}
+                    />
+                );
             })}
         </main>
     );
