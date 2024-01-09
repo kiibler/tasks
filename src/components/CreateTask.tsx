@@ -4,7 +4,7 @@ import handleTask from "@/lib/handleTask";
 
 const CreateTask = () => {
     return (
-        <div className="bg-slate-800 text-white rounded-lg p-2 hover:bg-slate-600">
+        <div className="bg-slate-800 text-white rounded-lg p-2 shadow-md hover:bg-slate-600">
             Luo uusi
         </div>
     );

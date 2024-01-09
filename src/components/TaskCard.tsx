@@ -13,7 +13,7 @@ const TaskCard = ({ task_name, course_name, due_date, finished }: Props) => {
         <div
             className={`${
                 done ? "border-green-300" : "border-red-300"
-            } bg-white border-2 rounded-lg grid grid-cols-5 items-center py-6`}
+            } bg-white border-2 shadow-sm hover:bg-gray-50/50 rounded-lg grid grid-cols-5 items-center py-6`}
         >
             <div className="grid grid-cols-subgrid col-span-3 items-center">
                 <input
