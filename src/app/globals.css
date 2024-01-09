@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    /* background: linear-gradient(90deg, #b4befe 0%, #89b4fa 100%); */
-    margin: 0px;
-    padding: 0px;
+@layer components {
+    .task-subgrid {
+        @apply grid grid-cols-subgrid col-span-3
+    }
 }
