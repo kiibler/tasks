@@ -1,24 +1,20 @@
-import CreateTask from "@/components/create-task";
-import TaskCard from "@/components/task-card";
-import prisma from "@/lib/prisma";
+import CreateTask from "@/components/CreateTask";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+import TaskTable from "@/components/TaskTable";
+import TaskTableHeader from "@/components/TaskTableHeader";
 
 export default async function Home() {
-    const tasks = await prisma.task.findMany();
-
     return (
-        <>
-            <CreateTask />
-            {tasks.map((task) => {
-                return (
-                    <TaskCard
-                        key={task.id}
-                        task_name={task.task_name}
-                        course_name={task.course_name!}
-                        due_date={task.due_date}
-                        finished={task.finished}
-                    />
-                );
-            })}
-        </>
+        <main className="flex">
+            <Sidebar />
+            <div className="flex-1">
+                <Header />
+                <div className="rounded-lg shadow-md m-10 p-10">
+                    <TaskTableHeader />
+                    <TaskTable />
+                </div>
+            </div>
+        </main>
     );
 }
