@@ -2,16 +2,12 @@
 
 import { useState } from "react";
 import getTime from "@/lib/getTime";
+import { Task } from "@prisma/client";
 
-interface TaskProps {
-    taskName: string;
-    courseName: string;
-    due_date: Date | null;
-    is_done: boolean;
-}
+type Props = Pick<Task, "task_name" | "course_name" | "due_date" | "finished">;
 
-const TaskCard = ({ taskName, courseName, due_date, is_done }: TaskProps) => {
-    const [done, setDone] = useState(is_done);
+const TaskCard = ({ task_name, course_name, due_date, finished}: Props) => {
+    const [done, setDone] = useState(finished);
 
     return (
         <div
@@ -24,11 +20,11 @@ const TaskCard = ({ taskName, courseName, due_date, is_done }: TaskProps) => {
                 checked={done}
                 onChange={() => setDone(!done)}
             />
-            <h3>{taskName}</h3>
+            <h3>{task_name}</h3>
             <div className="ml-auto flex justify-around gap-4">
-                <h3>{courseName}</h3>
+                <h3>{course_name}</h3>
                 <h3>{`Due: ${
-                    due_date ? getTime(due_date.toISOString()) : "-"
+                    due_date ? getTime(due_date) : "-"
                 }`}</h3>
             </div>
         </div>

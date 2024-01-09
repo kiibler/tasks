@@ -1,7 +1,7 @@
 import getTime from "@/lib/getTime";
 
 const Header = () => {
-    const today = new Date().toISOString();
+    const today = new Date();
 
     return (
         <header className="bg-slate-800 box-border h-20 px-12 flex justify-between items-center text-white">

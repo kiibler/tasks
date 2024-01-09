@@ -12,10 +12,10 @@ export default async function Home() {
                 return (
                     <TaskCard
                         key={task.id}
-                        taskName={task.task_name}
-                        courseName={task.course_name!}
+                        task_name={task.task_name}
+                        course_name={task.course_name!}
                         due_date={task.due_date}
-                        is_done={task.finished}
+                        finished={task.finished}
                     />
                 );
             })}
