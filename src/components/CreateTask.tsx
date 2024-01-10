@@ -4,10 +4,7 @@ const CreateTask = () => {
     return (
         <form
             className="box-border flex gap-2 rounded-lg border-2 border-slate-600 bg-slate-800/90 p-4 py-6 shadow-md"
-            action={(form) => {
-                handleTask(form);
-                window.location.reload();
-            }}
+            action={(form) => handleTask(form)}
         >
             <input
                 type="text"
