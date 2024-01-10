@@ -16,9 +16,9 @@ const TaskCard = ({ task }: Props) => {
         <div
             className={`${
                 done ? "border-green-300" : "border-red-300"
-            } grid grid-cols-5 items-center rounded-lg border-2 bg-white py-6 hover:bg-gray-100/50 hover:shadow-md`}
+            } grid grid-cols-4 items-center break-words rounded-lg border-2 bg-white py-6 hover:bg-gray-100/50 hover:shadow-md md:grid-cols-5`}
         >
-            <div className="col-span-3 grid grid-cols-subgrid items-center">
+            <div className="col-span-2 grid grid-cols-subgrid items-center gap-4 md:col-span-3">
                 <input
                     type="checkbox"
                     className="ml-4 justify-self-start"

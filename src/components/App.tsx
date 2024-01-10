@@ -22,22 +22,22 @@ const App = ({ taskRecords }: Props) => {
     });
 
     return (
-        <>
-            <Sidebar
-                courses={courses}
-                courseFilter={courseFitler}
-                onCourseFilterChange={setCourseFilter}
-            />
-            <div className="flex-1">
-                <Header />
-                <div className="m-10 rounded-lg p-10 shadow-md">
+        <main>
+            <Header />
+            <div className="flex">
+                <Sidebar
+                    courses={courses}
+                    courseFilter={courseFitler}
+                    onCourseFilterChange={setCourseFilter}
+                />
+                <div className="shadow-md m-10 flex-1 rounded-lg p-10">
                     <TaskTable
                         taskRecords={taskRecords}
                         courseFilter={courseFitler}
                     />
                 </div>
             </div>
-        </>
+        </main>
     );
 };
 

@@ -14,11 +14,11 @@ const SidebarItem = ({ title, courseFilter, onCourseFilterChange }: Props) => {
             type="button"
             onClick={(e) => onCourseFilterChange(e.currentTarget.value)}
             value={title}
-            className={
+            className={`${
                 courseFilter === title
-                    ? "rounded-lg bg-slate-800 p-2 text-white shadow-md hover:bg-slate-600"
-                    : "rounded-lg p-2 hover:bg-gray-200 hover:shadow-md"
-            }
+                    ? "bg-slate-800 text-white shadow-md hover:bg-slate-600"
+                    : "hover:bg-gray-200 hover:shadow-md"
+            } rounded-lg p-2`}
         >
             {title}
         </button>

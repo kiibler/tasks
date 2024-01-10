@@ -1,7 +1,6 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
-import Logo from "./Logo";
 import SidebarItem from "./SidebarItem";
 
 interface Props {
@@ -12,9 +11,8 @@ interface Props {
 
 const Sidebar = ({ courses, courseFilter, onCourseFilterChange }: Props) => {
     return (
-        <div className="min-h-screen w-60 flex-none border-r-2 border-gray-300 bg-gray-100">
-            <Logo />
-            <nav className="mt-10 grid justify-center gap-4">
+        <div className="hidden min-h-screen max-w-60 flex-none border-r-2 border-gray-300 bg-gray-100 lg:block">
+            <nav className="mt-10 grid justify-center gap-4 px-8">
                 <SidebarItem
                     title="Kaikki Tehtävät"
                     courseFilter={courseFilter}

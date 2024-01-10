@@ -14,12 +14,7 @@ const TaskTable = ({ taskRecords, courseFilter }: Props) => {
             courseFilter === "Kaikki Tehtävät" ||
             courseFilter === task.course_name
         ) {
-            return (
-                <TaskCard
-                    key={task.id}
-                    task={task}
-                />
-            );
+            return <TaskCard key={task.id} task={task} />;
         }
     });
 

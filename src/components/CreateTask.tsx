@@ -12,7 +12,7 @@ const CreateTask = () => {
 
     return (
         <form
-            className="box-border flex gap-2 rounded-lg border-2 border-slate-600 bg-slate-800/90 p-4 py-6 shadow-md"
+            className="gap-2 rounded-lg border-2 border-slate-600 bg-slate-800/90 grid grid-cols-2 p-4 shadow-md md:flex md:p-8"
             action={(form) => {
                 handleTask(form);
                 setFormState({ task_name: "", course_name: "", due_date: "" });
@@ -28,7 +28,7 @@ const CreateTask = () => {
                         task_name: e.currentTarget.value,
                     })
                 }
-                className="rounded-lg px-2"
+                className="rounded-lg p-2"
                 placeholder="Tehtävä"
                 required
             />
@@ -42,7 +42,7 @@ const CreateTask = () => {
                         course_name: e.currentTarget.value,
                     })
                 }
-                className="rounded-lg px-2"
+                className="rounded-lg p-2"
                 placeholder="Kurssi"
                 required
             />
@@ -56,9 +56,9 @@ const CreateTask = () => {
                         due_date: e.currentTarget.value,
                     })
                 }
-                className="rounded-lg px-2"
+                className="rounded-lg p-2"
             />
-            <button type="submit" className="rounded-lg bg-white px-2">
+            <button type="submit" className="rounded-lg bg-white p-2">
                 Luo Uusi
             </button>
         </form>
