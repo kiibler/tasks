@@ -23,7 +23,11 @@ const App = ({ taskRecords }: Props) => {
 
     return (
         <>
-            <Sidebar courses={courses} onCourseFilterChange={setCourseFilter} />
+            <Sidebar
+                courses={courses}
+                courseFilter={courseFitler}
+                onCourseFilterChange={setCourseFilter}
+            />
             <div className="flex-1">
                 <Header />
                 <div className="m-10 rounded-lg p-10 shadow-md">

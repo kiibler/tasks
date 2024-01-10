@@ -2,24 +2,22 @@
 
 import { Dispatch, SetStateAction } from "react";
 
-type Variant = "main" | "secondary";
-
 interface Props {
     title: string;
-    variant: Variant;
+    courseFilter: string;
     onCourseFilterChange: Dispatch<SetStateAction<string>>;
 }
 
-const SidebarItem = ({ title, variant, onCourseFilterChange }: Props) => {
+const SidebarItem = ({ title, courseFilter, onCourseFilterChange }: Props) => {
     return (
         <button
             type="button"
             onClick={(e) => onCourseFilterChange(e.currentTarget.value)}
             value={title}
             className={
-                variant === "main"
-                    ? "rounded-lg bg-slate-800 hover:bg-slate-600 shadow-md text-white p-2"
-                    : "hover:bg-gray-200 hover:shadow-md p-2 rounded-lg"
+                courseFilter === title
+                    ? "rounded-lg bg-slate-800 p-2 text-white shadow-md hover:bg-slate-600"
+                    : "rounded-lg p-2 hover:bg-gray-200 hover:shadow-md"
             }
         >
             {title}

@@ -6,17 +6,18 @@ import SidebarItem from "./SidebarItem";
 
 interface Props {
     courses: string[];
+    courseFilter: string;
     onCourseFilterChange: Dispatch<SetStateAction<string>>;
 }
 
-const Sidebar = ({ courses, onCourseFilterChange }: Props) => {
+const Sidebar = ({ courses, courseFilter, onCourseFilterChange }: Props) => {
     return (
         <div className="min-h-screen w-60 flex-none border-r-2 border-gray-300 bg-gray-100">
             <Logo />
             <nav className="mt-10 grid justify-center gap-4">
                 <SidebarItem
                     title="Kaikki Tehtävät"
-                    variant="main"
+                    courseFilter={courseFilter}
                     onCourseFilterChange={onCourseFilterChange}
                 />
                 {courses.map((course, index) => {
@@ -24,7 +25,7 @@ const Sidebar = ({ courses, onCourseFilterChange }: Props) => {
                         <SidebarItem
                             key={index}
                             title={course}
-                            variant="secondary"
+                            courseFilter={courseFilter}
                             onCourseFilterChange={onCourseFilterChange}
                         />
                     );
