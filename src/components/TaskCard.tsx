@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import getTime from "@/lib/getTime";
+import toggleTaskState from "@/lib/toggleTaskState";
 import { Task } from "@prisma/client";
 
-type Props = Pick<Task, "task_name" | "course_name" | "due_date" | "finished">;
+interface Props {
+    task: Task;
+}
 
-const TaskCard = ({ task_name, course_name, due_date, finished }: Props) => {
-    const [done, setDone] = useState(finished);
+const TaskCard = ({ task }: Props) => {
+    const [done, setDone] = useState(task.finished);
 
     return (
         <div
@@ -20,12 +23,15 @@ const TaskCard = ({ task_name, course_name, due_date, finished }: Props) => {
                     type="checkbox"
                     className="ml-4 justify-self-start"
                     checked={done}
-                    onChange={() => setDone(!done)}
+                    onChange={() => {
+                        setDone(!done);
+                        toggleTaskState(task.id, !done);
+                    }}
                 />
-                <h3>{task_name}</h3>
+                <h3>{task.task_name}</h3>
             </div>
-            <h3>{course_name}</h3>
-            <h3>{`Due: ${due_date ? getTime(due_date) : "-"}`}</h3>
+            <h3>{task.course_name}</h3>
+            <h3>{`Due: ${task.due_date ? getTime(task.due_date) : "-"}`}</h3>
         </div>
     );
 };

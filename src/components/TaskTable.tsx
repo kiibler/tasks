@@ -17,10 +17,7 @@ const TaskTable = ({ taskRecords, courseFilter }: Props) => {
             return (
                 <TaskCard
                     key={task.id}
-                    task_name={task.task_name}
-                    course_name={task.course_name}
-                    due_date={task.due_date}
-                    finished={task.finished}
+                    task={task}
                 />
             );
         }
