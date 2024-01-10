@@ -3,7 +3,7 @@ import handleTask from "@/lib/handleTask";
 const CreateTask = () => {
     return (
         <form
-            className="bg-slate-800/90 box-border border-2 border-slate-600 shadow-md p-4 flex gap-2 rounded-lg py-6"
+            className="box-border flex gap-2 rounded-lg border-2 border-slate-600 bg-slate-800/90 p-4 py-6 shadow-md"
             action={(form) => {
                 handleTask(form);
                 window.location.reload();
@@ -28,7 +28,7 @@ const CreateTask = () => {
                 name="due_date"
                 className="rounded-lg px-2"
             />
-            <button type="submit" className="bg-white rounded-lg px-2">
+            <button type="submit" className="rounded-lg bg-white px-2">
                 Luo Uusi
             </button>
         </form>

@@ -11,9 +11,9 @@ interface Props {
 
 const Sidebar = ({ courses, onCourseFilterChange }: Props) => {
     return (
-        <div className="bg-accent border-r-2 border-accent_brdr flex-none w-60 min-h-screen">
+        <div className="min-h-screen w-60 flex-none border-r-2 border-gray-300 bg-gray-100">
             <Logo />
-            <nav className="grid gap-4 justify-center mt-10">
+            <nav className="mt-10 grid justify-center gap-4">
                 <SidebarItem
                     title="Kaikki Tehtävät"
                     variant="main"

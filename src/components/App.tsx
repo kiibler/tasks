@@ -26,7 +26,7 @@ const App = ({ taskRecords }: Props) => {
             <Sidebar courses={courses} onCourseFilterChange={setCourseFilter} />
             <div className="flex-1">
                 <Header />
-                <div className="rounded-lg shadow-md m-10 p-10">
+                <div className="m-10 rounded-lg p-10 shadow-md">
                     <TaskTable
                         taskRecords={taskRecords}
                         courseFilter={courseFitler}

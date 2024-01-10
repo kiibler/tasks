@@ -13,12 +13,12 @@ const TaskCard = ({ task_name, course_name, due_date, finished }: Props) => {
         <div
             className={`${
                 done ? "border-green-300" : "border-red-300"
-            } bg-white border-2 hover:shadow-md hover:bg-gray-100/50 rounded-lg grid grid-cols-5 items-center py-6`}
+            } grid grid-cols-5 items-center rounded-lg border-2 bg-white py-6 hover:bg-gray-100/50 hover:shadow-md`}
         >
-            <div className="task-subgrid items-center">
+            <div className="col-span-3 grid grid-cols-subgrid items-center">
                 <input
                     type="checkbox"
-                    className="justify-self-start ml-4"
+                    className="ml-4 justify-self-start"
                     checked={done}
                     onChange={() => setDone(!done)}
                 />
