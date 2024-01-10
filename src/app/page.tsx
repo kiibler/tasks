@@ -1,17 +1,12 @@
-import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
-import TaskTable from "@/components/TaskTable";
+import App from "@/components/App";
+import prisma from "@/lib/prisma";
 
 export default async function Home() {
+    const taskRecords = await prisma.task.findMany();
+
     return (
         <main className="flex">
-            <Sidebar />
-            <div className="flex-1">
-                <Header />
-                <div className="rounded-lg shadow-md m-10 p-10">
-                    <TaskTable />
-                </div>
-            </div>
+            <App taskRecords={taskRecords} />
         </main>
     );
 }

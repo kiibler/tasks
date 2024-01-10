@@ -1,12 +1,13 @@
-"use client";
-
 import handleTask from "@/lib/handleTask";
 
 const CreateTask = () => {
     return (
         <form
             className="bg-slate-800/90 box-border border-2 border-slate-600 shadow-md p-4 flex gap-2 rounded-lg py-6"
-            onSubmit={(e) => handleTask(e)}
+            action={(form) => {
+                handleTask(form);
+                window.location.reload();
+            }}
         >
             <input
                 type="text"

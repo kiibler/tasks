@@ -6,7 +6,7 @@ const TaskTableHeader = () => {
                     <li>Tila</li>
                     <li>Tehtävä</li>
                 </div>
-                <li>Kurssi</li>
+                <li>Tag</li>
                 <li>Palautuspäivä</li>
             </ol>
         </header>
