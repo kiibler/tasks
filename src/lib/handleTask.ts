@@ -3,7 +3,13 @@
 import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
 
-const handleTask = async (form: FormData) => {
+type createTaskForm = {
+    task_name: string;
+    course_name: string;
+    due_date: string;
+};
+
+const handleTask = async (_: createTaskForm, form: FormData) => {
     await prisma.task.create({
         data: {
             task_name: String(form.get("task_name")),
@@ -16,6 +22,13 @@ const handleTask = async (form: FormData) => {
     });
 
     revalidatePath("/");
+
+    // return cleared form state
+    return {
+        task_name: "",
+        course_name: "",
+        due_date: "",
+    };
 };
 
 export default handleTask;
