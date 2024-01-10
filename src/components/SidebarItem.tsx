@@ -14,7 +14,7 @@ const SidebarItem = ({ title, variant, onCourseFilterChange }: Props) => {
     return (
         <button
             type="button"
-            onClick={(e) => {onCourseFilterChange(e.currentTarget.value); console.log(e.currentTarget.value)}}
+            onClick={(e) => onCourseFilterChange(e.currentTarget.value)}
             value={title}
             className={
                 variant === "main"
