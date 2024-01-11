@@ -1,13 +1,11 @@
 const TaskTableHeader = () => {
     return (
         <header>
-            <ol className="mb-4 grid grid-cols-3 border-b-2 md:grid-cols-5">
-                <div className="col-span-2 grid grid-flow-col grid-cols-subgrid md:col-span-3">
-                    <li>Tila</li>
-                    <li>Tehtävä</li>
-                </div>
-                <li className="hidden md:block">Tag</li>
-                <li>Palautuspäivä</li>
+            <ol className="mb-4 flex border-b-2">
+                <li className="max-w-10 flex-auto mx-2">Tila</li>
+                <li className="flex-1">Tehtävä</li>
+                <li className="hidden md:block md:flex-1">Tag</li>
+                <li className="flex-1">Palautuspäivä</li>
             </ol>
         </header>
     );

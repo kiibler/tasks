@@ -16,22 +16,22 @@ const TaskCard = ({ task }: Props) => {
         <div
             className={`${
                 done ? "border-green-300" : "border-red-300"
-            } grid grid-cols-3 break-all rounded-lg border-2 hover:bg-gray-100/50 hover:shadow-md md:grid-cols-5 md:py-6`}
+            } flex break-all rounded-lg border-2 py-2 hover:bg-gray-100/50 hover:shadow-md md:py-8`}
         >
-            <div className="col-span-2 my-auto grid grid-flow-col grid-cols-subgrid gap-4 md:col-span-3">
-                <input
-                    type="checkbox"
-                    className="ml-2 max-w-fit md:ml-4"
-                    checked={done}
-                    onChange={() => {
-                        setDone(!done);
-                        toggleTaskState(task.id, !done);
-                    }}
-                />
-                <h3>{task.task_name}</h3>
-            </div>
-            <h3 className="hidden md:block">{task.course_name}</h3>
-            <h3 className="my-auto">{`Due: ${
+            <input
+                type="checkbox"
+                className="mx-2 max-w-10 flex-auto"
+                checked={done}
+                onChange={() => {
+                    setDone(!done);
+                    toggleTaskState(task.id, !done);
+                }}
+            />
+            <h3 className="flex flex-1 items-center">{task.task_name}</h3>
+            <h3 className="hidden md:flex md:flex-1 md:items-center">
+                {task.course_name}
+            </h3>
+            <h3 className="flex flex-1 items-center">{`Due: ${
                 task.due_date ? getTime(task.due_date) : "-"
             }`}</h3>
         </div>
