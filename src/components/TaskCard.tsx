@@ -16,7 +16,7 @@ const TaskCard = ({ task }: Props) => {
         <div
             className={`${
                 done ? "border-green-300" : "border-red-300"
-            } grid grid-cols-4 items-center break-words rounded-lg border-2 bg-white py-6 hover:bg-gray-100/50 hover:shadow-md md:grid-cols-5`}
+            } grid grid-cols-3 items-center break-words rounded-lg border-2 bg-white py-6 hover:bg-gray-100/50 hover:shadow-md md:grid-cols-5`}
         >
             <div className="col-span-2 grid grid-cols-subgrid items-center gap-4 md:col-span-3">
                 <input
@@ -30,7 +30,7 @@ const TaskCard = ({ task }: Props) => {
                 />
                 <h3>{task.task_name}</h3>
             </div>
-            <h3>{task.course_name}</h3>
+            <h3 className="hidden md:block">{task.course_name}</h3>
             <h3>{`Due: ${task.due_date ? getTime(task.due_date) : "-"}`}</h3>
         </div>
     );

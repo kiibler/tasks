@@ -20,7 +20,7 @@ const TaskTable = ({ taskRecords, courseFilter }: Props) => {
 
     return (
         <>
-            <div className="mb-10">
+            <div className="md:mb-10">
                 <CreateTask />
             </div>
             <TaskTableHeader />

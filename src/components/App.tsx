@@ -30,7 +30,7 @@ const App = ({ taskRecords }: Props) => {
                     courseFilter={courseFitler}
                     onCourseFilterChange={setCourseFilter}
                 />
-                <div className="shadow-md m-10 flex-1 rounded-lg p-10">
+                <div className="md:shadow-md bg-white md:m-10 flex-1 md:rounded-lg p-2 md:p-10">
                     <TaskTable
                         taskRecords={taskRecords}
                         courseFilter={courseFitler}
