@@ -19,15 +19,15 @@ const TaskTable = ({ taskRecords, courseFilter }: Props) => {
     });
 
     return (
-        <>
-            <div className="md:mb-10">
+        <div className="mx-auto">
+            <div className="my-10">
                 <CreateTask />
             </div>
-            <div className="mt-10 md:mt-0">
+            <div className="rounded-lg border-2 p-4 shadow-xl md:p-8">
                 <TaskTableHeader />
                 <div className="grid auto-rows-fr gap-5">{tasks}</div>
             </div>
-        </>
+        </div>
     );
 };
 

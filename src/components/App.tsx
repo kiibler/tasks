@@ -30,12 +30,10 @@ const App = ({ taskRecords }: Props) => {
                     courseFilter={courseFitler}
                     onCourseFilterChange={setCourseFilter}
                 />
-                <div className="m-2 flex-1 md:m-10 md:rounded-lg md:p-10 md:shadow-md">
-                    <TaskTable
-                        taskRecords={taskRecords}
-                        courseFilter={courseFitler}
-                    />
-                </div>
+                <TaskTable
+                    taskRecords={taskRecords}
+                    courseFilter={courseFitler}
+                />
             </div>
         </main>
     );

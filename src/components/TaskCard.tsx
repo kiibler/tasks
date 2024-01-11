@@ -15,8 +15,10 @@ const TaskCard = ({ task }: Props) => {
     return (
         <div
             className={`${
-                done ? "border-green-300" : "border-red-300"
-            } flex break-all rounded-lg border-2 py-2 hover:bg-gray-100/50 hover:shadow-md sm:break-keep md:py-8`}
+                done
+                    ? "border-green-300 hover:border-green-600 hover:shadow-green-300"
+                    : "border-red-300 hover:border-red-600 hover:shadow-red-300"
+            } flex break-all rounded-lg border-2 py-2 hover:shadow-lg sm:break-keep md:py-8`}
         >
             <input
                 type="checkbox"
@@ -27,11 +29,9 @@ const TaskCard = ({ task }: Props) => {
                     toggleTaskState(task.id, !done);
                 }}
             />
-            <h3 className="flex flex-1 items-center">{task.task_name}</h3>
-            <h3 className="hidden md:flex md:flex-1 md:items-center">
-                {task.course_name}
-            </h3>
-            <h3 className="flex flex-1 items-center">{`Due: ${
+            <h3 className="flex-1">{task.task_name}</h3>
+            <h3 className="hidden md:inline md:flex-1">{task.course_name}</h3>
+            <h3 className="flex-1">{`Due: ${
                 task.due_date ? getTime(task.due_date) : "-"
             }`}</h3>
         </div>
