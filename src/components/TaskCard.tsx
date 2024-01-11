@@ -16,9 +16,9 @@ const TaskCard = ({ task }: Props) => {
         <div
             className={`${
                 done
-                    ? "border-green-300 hover:border-green-600 hover:shadow-green-300"
-                    : "border-red-300 hover:border-red-600 hover:shadow-red-300"
-            } flex break-all rounded-lg border-2 py-2 hover:shadow-lg sm:break-keep md:py-8`}
+                    ? "border-green-600 shadow-green-300 sm:border-green-300 sm:hover:border-green-600 sm:hover:shadow-green-300"
+                    : "border-red-600 shadow-red-300 sm:border-red-300 sm:hover:border-red-600 sm:hover:shadow-red-300"
+            } flex break-all rounded-lg border-2 py-2 shadow-lg sm:break-keep sm:hover:shadow-lg md:py-8`}
         >
             <input
                 type="checkbox"
