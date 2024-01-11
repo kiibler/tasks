@@ -5,8 +5,8 @@ const Header = () => {
     const today = new Date();
 
     return (
-        <header className="flex md:min-h-28 border-b-2 border-gray-300 bg-gray-100">
-            <div className="flex min-w-24 md:min-w-40 items-center justify-center border-r-2 border-gray-300 lg:min-w-60">
+        <header className="flex border-b-2 border-gray-300 bg-gray-100 md:min-h-28">
+            <div className="flex min-w-24 items-center justify-center border-r-2 border-gray-300 md:min-w-40 lg:min-w-60">
                 <LuListTodo size={60} />
             </div>
             <div className="flex flex-1 items-center justify-center border lg:justify-between">
