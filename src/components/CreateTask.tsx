@@ -12,7 +12,7 @@ const CreateTask = () => {
 
     return (
         <form
-            className="hidden rounded-lg border-2 border-slate-600 bg-slate-800/90 p-4 shadow-md md:justify-start md:gap-8 lg:flex"
+            className="hidden rounded-lg border-2 border-slate-600 bg-slate-800/90 p-4 shadow-md xl:flex xl:justify-start xl:gap-8"
             action={(form) => {
                 handleTask(form);
                 setFormState({ task_name: "", course_name: "", due_date: "" });

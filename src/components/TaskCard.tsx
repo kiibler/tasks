@@ -16,12 +16,12 @@ const TaskCard = ({ task }: Props) => {
         <div
             className={`${
                 done ? "border-green-300" : "border-red-300"
-            } grid grid-cols-3 items-center break-words rounded-lg border-2 bg-white py-6 hover:bg-gray-100/50 hover:shadow-md md:grid-cols-5`}
+            } grid grid-cols-3 break-all rounded-lg border-2 hover:bg-gray-100/50 hover:shadow-md md:grid-cols-5 md:py-6`}
         >
-            <div className="col-span-2 grid grid-cols-subgrid items-center gap-4 md:col-span-3">
+            <div className="col-span-2 my-auto grid grid-flow-col grid-cols-subgrid gap-4 md:col-span-3">
                 <input
                     type="checkbox"
-                    className="ml-4 justify-self-start"
+                    className="ml-2 max-w-fit md:ml-4"
                     checked={done}
                     onChange={() => {
                         setDone(!done);
@@ -31,7 +31,9 @@ const TaskCard = ({ task }: Props) => {
                 <h3>{task.task_name}</h3>
             </div>
             <h3 className="hidden md:block">{task.course_name}</h3>
-            <h3>{`Due: ${task.due_date ? getTime(task.due_date) : "-"}`}</h3>
+            <h3 className="my-auto">{`Due: ${
+                task.due_date ? getTime(task.due_date) : "-"
+            }`}</h3>
         </div>
     );
 };
