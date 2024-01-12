@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import TaskTable from "@/components/TaskTable";
+import getUniqueCourses from "@/lib/getUniqueCourses";
 import { Task } from "@prisma/client";
 import { useState, useEffect } from "react";
 
@@ -11,7 +12,9 @@ interface Props {
 }
 
 const App = ({ taskRecords }: Props) => {
+    let courses: string[] = getUniqueCourses(taskRecords);
     const [courseFitler, setCourseFilter] = useState("Kaikki Tehtävät");
+
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
     const [screenWidth, setScreenWidth] = useState(0);
 
@@ -28,17 +31,12 @@ const App = ({ taskRecords }: Props) => {
         setScreenWidth(window.innerWidth);
         window.addEventListener("resize", handleResize);
 
+        // close sidebar when a course filter is applied from it
+        setIsSidebarVisible(false);
+
         // on component remount
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    // get unique courses for sidebar filter buttons
-    let courses: string[] = [];
-    taskRecords.forEach((task) => {
-        if (courses.indexOf(task.course_name) === -1) {
-            courses.push(task.course_name);
-        }
-    });
+    }, [courseFitler]);
 
     return (
         <main>
