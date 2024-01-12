@@ -55,6 +55,7 @@ const App = ({ taskRecords }: Props) => {
                 <TaskTable
                     taskRecords={taskRecords}
                     courseFilter={courseFitler}
+                    screenWidth={screenWidth}
                 />
             </div>
         </main>

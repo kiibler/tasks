@@ -1,33 +1,49 @@
 "use client";
 
 import handleTask from "@/lib/handleTask";
-import { useState } from "react";
+import { FormHTMLAttributes, useRef, useEffect, RefObject } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 
-const CreateTask = () => {
-    const [formState, setFormState] = useState({
-        task_name: "",
-        course_name: "",
-        due_date: "",
-    });
+const SubmitButton = () => {
+    const { pending } = useFormStatus();
+
+    return (
+        <button
+            type="submit"
+            className="rounded-lg bg-white p-2"
+            aria-disabled={pending}
+        >
+            Luo Uusi
+        </button>
+    );
+};
+
+interface Props extends FormHTMLAttributes<HTMLFormElement> {
+    dialogRef: RefObject<HTMLDialogElement>;
+}
+
+const CreateTask = ({ dialogRef, ...props }: Props) => {
+    const initialState = { message: "" };
+    const [state, formAction] = useFormState(handleTask, initialState);
+
+    const formRef = useRef<HTMLFormElement>(null);
+    useEffect(() => {
+        // clear form input fields when form state changes
+        formRef.current?.reset();
+    }, [state.message]);
 
     return (
         <form
-            className="hidden rounded-2xl border-2 border-slate-900 bg-slate-800/90 p-4 shadow-xl xl:flex xl:gap-2"
+            {...props}
+            ref={formRef}
             action={(form) => {
-                handleTask(form);
-                setFormState({ task_name: "", course_name: "", due_date: "" });
+                formAction(form);
+                dialogRef.current?.close();
             }}
         >
             <input
                 type="text"
                 name="task_name"
-                value={formState?.task_name}
-                onChange={(e) =>
-                    setFormState({
-                        ...formState,
-                        task_name: e.currentTarget.value,
-                    })
-                }
                 className="rounded-lg p-2"
                 placeholder="Tehtävä"
                 required
@@ -35,13 +51,6 @@ const CreateTask = () => {
             <input
                 type="text"
                 name="course_name"
-                value={formState?.course_name}
-                onChange={(e) =>
-                    setFormState({
-                        ...formState,
-                        course_name: e.currentTarget.value,
-                    })
-                }
                 className="rounded-lg p-2"
                 placeholder="Kurssi"
                 required
@@ -49,18 +58,9 @@ const CreateTask = () => {
             <input
                 type="datetime-local"
                 name="due_date"
-                value={formState?.due_date}
-                onChange={(e) =>
-                    setFormState({
-                        ...formState,
-                        due_date: e.currentTarget.value,
-                    })
-                }
                 className="rounded-lg p-2"
             />
-            <button type="submit" className="rounded-lg bg-white p-2">
-                Luo Uusi
-            </button>
+            <SubmitButton />
         </form>
     );
 };
