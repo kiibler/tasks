@@ -18,7 +18,7 @@ const TaskCard = ({ task }: Props) => {
                 done
                     ? "border-green-600 shadow-green-300 sm:border-green-300 sm:hover:border-green-600"
                     : "border-red-600 shadow-red-300 sm:border-red-300 sm:hover:border-red-600"
-            } flex break-all rounded-lg border-2 py-2 shadow-lg sm:break-keep md:py-8`}
+            } flex min-h-14 break-all rounded-lg border-2 py-2 shadow-lg sm:break-keep md:py-8`}
         >
             <input
                 type="checkbox"
