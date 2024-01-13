@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
 
-const handleTask = async (prevState: any, form: FormData) => {
+export const handleTask = async (prevState: any, form: FormData) => {
     try {
         await prisma.task.create({
             data: {
@@ -22,5 +22,3 @@ const handleTask = async (prevState: any, form: FormData) => {
         return { message: "Failed to add task" };
     }
 };
-
-export default handleTask;

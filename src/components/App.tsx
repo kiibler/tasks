@@ -3,7 +3,8 @@
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import TaskTable from "@/components/TaskTable";
-import getUniqueCourses from "@/lib/getUniqueCourses";
+import Logo from "@/components/Logo";
+import { getUniqueCourses } from "@/lib/getUniqueCourses";
 import { Task } from "@prisma/client";
 import { useState, useEffect } from "react";
 
@@ -40,11 +41,13 @@ const App = ({ taskRecords }: Props) => {
 
     return (
         <main>
-            <Header
-                screenWidth={screenWidth}
-                isSidebarVisible={isSidebarVisible}
-                setIsSidebarVisible={setIsSidebarVisible}
-            />
+            <Header>
+                <Logo
+                    screenWidth={screenWidth}
+                    isSidebarVisible={isSidebarVisible}
+                    setIsSidebarVisible={setIsSidebarVisible}
+                />
+            </Header>
             <div className="flex">
                 <Sidebar
                     courses={courses}

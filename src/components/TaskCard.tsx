@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import getTime from "@/lib/getTime";
-import toggleTaskState from "@/lib/toggleTaskState";
+import { getTime } from "@/lib/getTime";
+import { toggleTaskState } from "@/lib/toggleTaskState";
 import { Task } from "@prisma/client";
 
 interface Props {

@@ -2,7 +2,7 @@
 
 import prisma from "./prisma";
 
-const toggleTaskState = async (id: string, state: boolean) => {
+export const toggleTaskState = async (id: string, state: boolean) => {
     const res = await prisma.task.update({
         where: {
             id: id,
@@ -12,5 +12,3 @@ const toggleTaskState = async (id: string, state: boolean) => {
         },
     });
 };
-
-export default toggleTaskState;

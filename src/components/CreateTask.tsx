@@ -1,6 +1,6 @@
 "use client";
 
-import handleTask from "@/lib/handleTask";
+import { handleTask } from "@/lib/handleTask";
 import { FormHTMLAttributes, useRef, useEffect, RefObject } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 
