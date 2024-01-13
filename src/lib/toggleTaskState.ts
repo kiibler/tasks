@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
 
 export const toggleTaskState = async (id: string, state: boolean) => {
@@ -11,4 +12,6 @@ export const toggleTaskState = async (id: string, state: boolean) => {
             finished: state,
         },
     });
+
+    revalidatePath("/");
 };

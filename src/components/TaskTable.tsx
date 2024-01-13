@@ -1,5 +1,3 @@
-"use client";
-
 import TaskCard from "@/components/TaskCard";
 import TaskTableHeader from "./TaskTableHeader";
 import Dialog from "./Dialog";
