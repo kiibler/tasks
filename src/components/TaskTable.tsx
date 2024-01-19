@@ -26,12 +26,12 @@ const TaskTable = ({ taskRecords, courseFilter, screenWidth }: Props) => {
     const NewTaskComponent =
         screenWidth > 1280 ? (
             <CreateTask
-                className="flex gap-2 rounded-2xl border-2 border-slate-900 bg-slate-800/90 p-4 shadow-xl"
+                className="bg-ctp-surface-0 border-ctp-base-dark flex gap-2 rounded-2xl border-2 p-4 shadow-xl"
                 dialogRef={ref}
             />
         ) : (
             <Dialog
-                className="rounded-lg bg-slate-800 p-4 shadow-xl"
+                className="bg-ctp-surface-0 border-ctp-base-dark rounded-lg p-4 shadow-xl"
                 dialogRef={ref}
             >
                 <CreateTask dialogRef={ref} className="mt-4 grid gap-4" />
@@ -39,9 +39,9 @@ const TaskTable = ({ taskRecords, courseFilter, screenWidth }: Props) => {
         );
 
     return (
-        <div className="mx-auto bg-white">
+        <div className="mx-auto max-w-screen-md flex-1 xl:max-w-screen-lg">
             <div className="my-10">{NewTaskComponent}</div>
-            <div className="p-4 sm:rounded-lg sm:border-2 sm:shadow-xl md:p-8">
+            <div className="p-4 sm:p-8">
                 <TaskTableHeader />
                 <div className="grid auto-rows-fr gap-5">{tasks}</div>
             </div>

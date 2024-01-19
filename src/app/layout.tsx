@@ -21,7 +21,9 @@ export default async function RootLayout({
 
     return (
         <html lang="fi">
-            <body className={inter.className}>
+            <body
+                className={`${inter.className} bg-ctp-base text-ctp-base-text`}
+            >
                 <SessionProvider session={session}>{children}</SessionProvider>
             </body>
         </html>

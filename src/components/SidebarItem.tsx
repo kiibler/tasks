@@ -14,8 +14,8 @@ const SidebarItem = ({ title, courseFilter, onCourseFilterChange }: Props) => {
             value={title}
             className={`${
                 courseFilter === title
-                    ? "bg-slate-800 text-white shadow-md hover:bg-slate-600"
-                    : "hover:bg-gray-200 hover:shadow-md"
+                    ? "bg-ctp-base-text text-ctp-base-dark"
+                    : "hover:underline"
             } rounded-lg p-2`}
         >
             {title}

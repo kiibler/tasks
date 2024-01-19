@@ -10,7 +10,7 @@ const SubmitButton = () => {
     return (
         <button
             type="submit"
-            className="rounded-lg bg-white p-2"
+            className="bg-ctp-base text-ctp-base-text rounded-lg p-2"
             aria-disabled={pending}
         >
             Luo Uusi
@@ -44,21 +44,21 @@ const CreateTask = ({ dialogRef, ...props }: Props) => {
             <input
                 type="text"
                 name="task_name"
-                className="rounded-lg p-2"
+                className="bg-ctp-base-text text-ctp-base-dark rounded-lg p-2"
                 placeholder="Tehtävä"
                 required
             />
             <input
                 type="text"
                 name="course_name"
-                className="rounded-lg p-2"
+                className="bg-ctp-base-text text-ctp-base-dark rounded-lg p-2"
                 placeholder="Kurssi"
                 required
             />
             <input
                 type="datetime-local"
                 name="due_date"
-                className="rounded-lg p-2"
+                className="bg-ctp-base-text text-ctp-base-dark rounded-lg p-2"
             />
             <SubmitButton />
         </form>

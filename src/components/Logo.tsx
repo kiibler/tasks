@@ -17,12 +17,12 @@ const Logo = ({
     };
 
     return screenWidth > 1024 ? (
-        <div className="flex min-w-24 items-center justify-center border-r-2 border-gray-300 md:min-w-40 lg:min-w-60">
+        <div className="border-ctp-base-dark flex min-w-24 items-center justify-center border-r-2 md:min-w-40 lg:min-w-60">
             <LuListTodo size={60} />
         </div>
     ) : (
         <button
-            className="flex min-w-24 items-center justify-center border-r-2 border-gray-300 md:min-w-40 lg:min-w-60"
+            className="border-ctp-base-dark flex min-w-24 items-center justify-center border-r-2 md:min-w-40 lg:min-w-60"
             onClick={handleClick}
         >
             <LuListTodo size={60} />

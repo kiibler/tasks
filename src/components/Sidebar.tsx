@@ -17,8 +17,10 @@ const Sidebar = ({
     return (
         <div
             className={`${
-                isSidebarVisible ? "absolute" : "hidden"
-            } min-h-screen max-w-60 border-r-2 border-gray-300 bg-gray-100 lg:static lg:block`}
+                isSidebarVisible
+                    ? "bg-ctp-surface-0 absolute xl:bg-inherit"
+                    : "hidden"
+            } min-h-screen max-w-60 lg:static lg:block`}
         >
             <nav className="grid justify-center gap-4 px-8 pt-10">
                 <SidebarItem
