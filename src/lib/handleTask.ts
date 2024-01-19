@@ -1,9 +1,14 @@
 "use server";
 
+import { auth } from "./auth";
 import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
 
 export const handleTask = async (prevState: any, form: FormData) => {
+    const session = await auth();
+
+    if (!session) return { message: "Unauthenticated" };
+
     try {
         await prisma.task.create({
             data: {
@@ -13,6 +18,7 @@ export const handleTask = async (prevState: any, form: FormData) => {
                     ? new Date(form.get("due_date") as string)
                     : null,
                 finished: false,
+                user_email: session?.user?.email ?? "",
             },
         });
 
