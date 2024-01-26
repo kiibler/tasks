@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import { auth } from "@/lib/auth";
-import SessionProvider from "@/components/SessionProvider";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,15 +14,9 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const session = await auth();
-
     return (
         <html lang="fi">
-            <body
-                className={`${inter.className} bg-ctp-base text-ctp-base-text`}
-            >
-                <SessionProvider session={session}>{children}</SessionProvider>
-            </body>
+            <body className={inter.className}>{children}</body>
         </html>
     );
 }

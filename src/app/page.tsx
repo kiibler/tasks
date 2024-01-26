@@ -1,22 +1,16 @@
-import App from "@/components/App";
 import prisma from "@/lib/prisma";
-
-import { auth } from "@/lib/auth";
-import { redirect } from "next/navigation";
+import App from "@/components/App";
 
 export default async function Home() {
-    const session = await auth();
-
-    if (!session) return redirect("/api/auth/signin");
-
-    const taskRecords = await prisma.task.findMany({
-        where: {
-            user_email: session.user?.email ?? "",
-        },
+    const todoRecords = await prisma.todos.findMany({
         orderBy: {
-            task_name: "desc",
+            created_at: "desc",
         },
     });
 
-    return <App taskRecords={taskRecords} />;
+    return (
+        <main>
+            <App todoRecords={todoRecords} />
+        </main>
+    );
 }

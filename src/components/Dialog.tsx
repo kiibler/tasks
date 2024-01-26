@@ -1,30 +1,25 @@
-import { DialogHTMLAttributes, RefObject } from "react";
+import { IoCloseOutline } from "react-icons/io5";
+import { RefObject } from "react";
 
-interface Props extends DialogHTMLAttributes<HTMLDialogElement> {
+interface Props {
     dialogRef: RefObject<HTMLDialogElement>;
+    children?: React.ReactNode;
 }
 
-const Dialog = ({ dialogRef, children, ...props }: Props) => {
+const Dialog = ({ dialogRef, children }: Props) => {
     return (
-        <>
-            <dialog id="modal" ref={dialogRef} {...props}>
-                <button
-                    type="button"
-                    onClick={() => dialogRef.current?.close()}
-                    className="bg-ctp-base text-ctp-base-text max-h-fit max-w-fit rounded-full px-4 py-2 font-extrabold"
-                >
-                    X
-                </button>
-                {children}
-            </dialog>
+        <dialog
+            ref={dialogRef}
+            className="open:grid open:gap-4 open:rounded-lg open:p-4"
+        >
             <button
-                type="button"
-                className="bg-ctp-surface-0 text-ctp-base-text ml-4 rounded-lg p-4 font-bold shadow-xl"
-                onClick={() => dialogRef.current?.showModal()}
+                className="w-fit rounded-lg border bg-gray-100 p-2 hover:bg-gray-200"
+                onClick={() => dialogRef.current?.close()}
             >
-                Luo Uusi
+                <IoCloseOutline />
             </button>
-        </>
+            {children}
+        </dialog>
     );
 };
 

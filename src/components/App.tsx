@@ -1,67 +1,54 @@
 "use client";
 
+import { useState, useRef } from "react";
+
+import { LuListTodo } from "react-icons/lu";
+import { HiMenu } from "react-icons/hi";
 import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
-import TaskTable from "@/components/TaskTable";
-import Logo from "@/components/Logo";
-import { getUniqueCourses } from "@/lib/getUniqueCourses";
-import { Task } from "@prisma/client";
-import { useState, useEffect } from "react";
+import SideBar from "./SideBar";
+import TodoTable from "@/components/TodoTable";
+
+import { Todos } from "@prisma/client";
 
 interface Props {
-    taskRecords: Task[];
+    todoRecords: Todos[];
 }
 
-const App = ({ taskRecords }: Props) => {
-    let courses: string[] = getUniqueCourses(taskRecords);
-    const [courseFitler, setCourseFilter] = useState("Kaikki Tehtävät");
+const App = ({ todoRecords }: Props) => {
+    const todoCategories: string[] = ["Kaikki tehtävät"];
+    todoRecords.forEach((todo) => {
+        if (!todoCategories.includes(todo.course_name)) {
+            todoCategories.push(todo.course_name);
+        }
+    });
 
-    const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-    const [screenWidth, setScreenWidth] = useState(0);
-
-    const handleResize = () => {
-        setScreenWidth(window.innerWidth);
-
-        window.innerWidth < 1280
-            ? setIsSidebarVisible(false)
-            : setIsSidebarVisible(true);
-    };
-
-    useEffect(() => {
-        // on component mount (initial render)
-        setScreenWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-
-        // close sidebar when a course filter is applied from it
-        setIsSidebarVisible(false);
-
-        // on component remount
-        return () => window.removeEventListener("resize", handleResize);
-    }, [courseFitler]);
+    const [categoryFilter, setCategoryFilter] = useState(todoCategories[0]);
+    const sidebarRef = useRef<HTMLDialogElement>(null);
 
     return (
-        <main>
+        <div>
             <Header>
-                <Logo
-                    screenWidth={screenWidth}
-                    isSidebarVisible={isSidebarVisible}
-                    setIsSidebarVisible={setIsSidebarVisible}
-                />
+                <LuListTodo size={60} />
+                <button
+                    className="block sm:hidden"
+                    onClick={() => sidebarRef.current?.showModal()}
+                >
+                    <HiMenu size={40} />
+                </button>
             </Header>
-            <div className="flex">
-                <Sidebar
-                    courses={courses}
-                    courseFilter={courseFitler}
-                    onCourseFilterChange={setCourseFilter}
-                    isSidebarVisible={isSidebarVisible}
+            <div className="mx-4 flex items-start justify-center gap-8">
+                <TodoTable
+                    todos={todoRecords}
+                    categories={todoCategories}
+                    categoryFilter={categoryFilter}
                 />
-                <TaskTable
-                    taskRecords={taskRecords}
-                    courseFilter={courseFitler}
-                    screenWidth={screenWidth}
+                <SideBar
+                    categories={todoCategories}
+                    setCategoryFilter={setCategoryFilter}
+                    sidebarRef={sidebarRef}
                 />
             </div>
-        </main>
+        </div>
     );
 };
 
