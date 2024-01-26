@@ -9,7 +9,7 @@ interface Props {
 const TodoCategory = ({ category, todos }: Props) => {
     return (
         <div className="rounded-xl border">
-            <p className="bg-gray-100 p-2">{category}</p>
+            <p className="rounded-t-lg bg-gray-100 p-2">{category}</p>
             {todos.map((todo) => {
                 return <Todo key={todo.id} todo={todo} />;
             })}

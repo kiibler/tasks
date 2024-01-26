@@ -27,7 +27,7 @@ const TodoTable = ({ todos, categories, categoryFilter }: Props) => {
     });
 
     return (
-        <div className="mt-8 grid max-w-screen-sm flex-1 gap-6">
+        <div className="my-8 grid max-w-screen-sm flex-1 gap-6">
             <NewTodoModal category={categoryFilter} />
             {todoCategories}
         </div>

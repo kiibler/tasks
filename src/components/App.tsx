@@ -15,14 +15,14 @@ interface Props {
 }
 
 const App = ({ todoRecords }: Props) => {
-    const todoCategories: string[] = ["Kaikki tehtävät"];
+    const todoCategories: string[] = [];
     todoRecords.forEach((todo) => {
         if (!todoCategories.includes(todo.course_name)) {
             todoCategories.push(todo.course_name);
         }
     });
 
-    const [categoryFilter, setCategoryFilter] = useState(todoCategories[0]);
+    const [categoryFilter, setCategoryFilter] = useState("Kaikki tehtävät");
     const sidebarRef = useRef<HTMLDialogElement>(null);
 
     return (

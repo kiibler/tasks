@@ -11,6 +11,14 @@ const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
     return (
         <>
             <ul className="mt-8 hidden border-l border-gray-400 sm:block">
+                <li className="px-2 pb-2">
+                    <button
+                        className="hover:underline"
+                        onClick={() => setCategoryFilter("Kaikki tehtävät")}
+                    >
+                        Kaikki tehtävät
+                    </button>
+                </li>
                 {categories.map((cat) => {
                     return (
                         <li key={cat} className="px-2 pb-2">
@@ -25,12 +33,22 @@ const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
                 })}
             </ul>
             <Dialog dialogRef={sidebarRef}>
-                <ul className="rounded-lg border border-gray-400 ">
+                <ul className="rounded-lg border border-gray-400">
+                    <li className="rounded-t-lg p-2 hover:bg-gray-200">
+                        <button
+                            onClick={() => {
+                                setCategoryFilter("Kaikki tehtävät");
+                                sidebarRef.current?.close();
+                            }}
+                        >
+                            Kaikki tehtävät
+                        </button>
+                    </li>
                     {categories.map((cat) => {
                         return (
                             <li
                                 key={cat}
-                                className="p-2 first:rounded-t-lg last:rounded-b-lg odd:bg-gray-100 hover:bg-gray-200"
+                                className="p-2 first:rounded-t-lg last:rounded-b-lg even:bg-gray-100 hover:bg-gray-200"
                             >
                                 <button
                                     onClick={() => {
