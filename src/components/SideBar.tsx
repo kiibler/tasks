@@ -10,7 +10,7 @@ interface Props {
 const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
     return (
         <>
-            <ul className="mt-8 hidden border-l border-gray-400 sm:block">
+            <ul className="mt-8 hidden border-l border-gray-400 sm:block dark:border-gray-600">
                 <li className="px-2 pb-2">
                     <button
                         className="hover:underline"
@@ -33,8 +33,8 @@ const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
                 })}
             </ul>
             <Dialog dialogRef={sidebarRef}>
-                <ul className="rounded-lg border border-gray-400">
-                    <li className="rounded-t-lg p-2 hover:bg-gray-200">
+                <ul className="rounded-lg border border-gray-400 dark:border-gray-600">
+                    <li className="rounded-t-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-800">
                         <button
                             onClick={() => {
                                 setCategoryFilter("Kaikki tehtävät");
@@ -48,7 +48,7 @@ const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
                         return (
                             <li
                                 key={cat}
-                                className="p-2 first:rounded-t-lg last:rounded-b-lg even:bg-gray-100 hover:bg-gray-200"
+                                className="p-2 first:rounded-t-lg last:rounded-b-lg even:bg-gray-100 hover:bg-gray-200 dark:even:bg-gray-900 dark:hover:bg-gray-800"
                             >
                                 <button
                                     onClick={() => {

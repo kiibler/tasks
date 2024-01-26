@@ -23,7 +23,7 @@ const NewTodoModal = ({ category }: Props) => {
                     }}
                 >
                     <input
-                        className="block rounded-lg border p-2"
+                        className="block rounded-lg border p-2 dark:border-gray-800 dark:bg-gray-600"
                         type="text"
                         id="todo"
                         name="todo"
@@ -31,7 +31,7 @@ const NewTodoModal = ({ category }: Props) => {
                         required
                     />
                     <input
-                        className="block rounded-lg border p-2"
+                        className="block rounded-lg border p-2 dark:border-gray-800 dark:bg-gray-600"
                         type="text"
                         id="tag"
                         name="tag"
@@ -39,7 +39,7 @@ const NewTodoModal = ({ category }: Props) => {
                         required
                     />
                     <button
-                        className="rounded-lg border bg-gray-800 p-2 text-white"
+                        className="rounded-lg border bg-gray-800 p-2 text-white dark:border-gray-700 dark:bg-gray-900"
                         type="submit"
                         onClick={() => {
                             dialogRef.current?.close();
@@ -52,7 +52,7 @@ const NewTodoModal = ({ category }: Props) => {
             <div className="flex items-center justify-between">
                 <h3 className="text-2xl">{category}</h3>
                 <button
-                    className="rounded-lg bg-gray-900 p-2 text-white"
+                    className="rounded-lg border bg-gray-900 p-2 text-white dark:border-gray-600"
                     onClick={() => dialogRef.current?.showModal()}
                 >
                     Luo uusi

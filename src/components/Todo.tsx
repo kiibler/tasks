@@ -12,7 +12,7 @@ const Todo = ({ todo }: Props) => {
     const [optimisticState, addOptimistic] = useOptimistic(todo.finished);
 
     return (
-        <div className="flex items-center justify-between border-t p-2 hover:bg-gray-100">
+        <div className="flex items-center justify-between border-t p-2 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:last:rounded-b-xl dark:hover:bg-gray-900">
             <div className="flex gap-4">
                 <input
                     type="checkbox"
@@ -33,7 +33,7 @@ const Todo = ({ todo }: Props) => {
                         })}
                 </p>
                 <button
-                    className="rounded-lg border bg-gray-100 p-1 hover:bg-gray-200"
+                    className="rounded-lg border bg-gray-100 p-1 hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
                     onClick={() => deleteTodo(todo.id)}
                 >
                     <MdDeleteOutline />

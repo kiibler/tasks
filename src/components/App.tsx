@@ -9,6 +9,7 @@ import SideBar from "./SideBar";
 import TodoTable from "@/components/TodoTable";
 
 import { Todos } from "@prisma/client";
+import { MdDarkMode } from "react-icons/md";
 
 interface Props {
     todoRecords: Todos[];
@@ -25,28 +26,40 @@ const App = ({ todoRecords }: Props) => {
     const [categoryFilter, setCategoryFilter] = useState("Kaikki tehtävät");
     const sidebarRef = useRef<HTMLDialogElement>(null);
 
+    const [isDarkMode, setIsDarkMode] = useState(true);
+
     return (
-        <div>
-            <Header>
-                <LuListTodo size={60} />
-                <button
-                    className="block sm:hidden"
-                    onClick={() => sidebarRef.current?.showModal()}
-                >
-                    <HiMenu size={40} />
-                </button>
-            </Header>
-            <div className="mx-4 flex items-start justify-center gap-8">
-                <TodoTable
-                    todos={todoRecords}
-                    categories={todoCategories}
-                    categoryFilter={categoryFilter}
-                />
-                <SideBar
-                    categories={todoCategories}
-                    setCategoryFilter={setCategoryFilter}
-                    sidebarRef={sidebarRef}
-                />
+        <div className={`${isDarkMode && "dark"}`}>
+            <div className="min-h-screen dark:bg-gray-950 dark:text-gray-200">
+                <Header>
+                    <LuListTodo size={60} />
+                    <div className="flex gap-8">
+                        <button
+                            className="rounded-lg border border-gray-400 bg-gray-100 p-2 hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
+                            onClick={() => setIsDarkMode(!isDarkMode)}
+                        >
+                            <MdDarkMode />
+                        </button>
+                        <button
+                            className="block sm:hidden"
+                            onClick={() => sidebarRef.current?.showModal()}
+                        >
+                            <HiMenu size={40} />
+                        </button>
+                    </div>
+                </Header>
+                <div className="mx-4 flex items-start justify-center gap-8">
+                    <TodoTable
+                        todos={todoRecords}
+                        categories={todoCategories}
+                        categoryFilter={categoryFilter}
+                    />
+                    <SideBar
+                        categories={todoCategories}
+                        setCategoryFilter={setCategoryFilter}
+                        sidebarRef={sidebarRef}
+                    />
+                </div>
             </div>
         </div>
     );
