@@ -24,7 +24,7 @@ const Todo = ({ todo }: Props) => {
                 />
                 <p>{todo.task_name}</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
                 <p>
                     {todo.due_date &&
                         todo.due_date.toLocaleDateString("fi-FI", {
@@ -33,7 +33,7 @@ const Todo = ({ todo }: Props) => {
                         })}
                 </p>
                 <button
-                    className="rounded-lg border bg-gray-100 p-1 hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
+                    className="h-fit rounded-lg border bg-gray-100 p-1 hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800"
                     onClick={() => deleteTodo(todo.id)}
                 >
                     <MdDeleteOutline />

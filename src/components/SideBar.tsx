@@ -34,31 +34,27 @@ const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
             </ul>
             <Dialog dialogRef={sidebarRef}>
                 <ul className="rounded-lg border border-gray-400 dark:border-gray-600">
-                    <li className="rounded-t-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-800">
-                        <button
-                            onClick={() => {
-                                setCategoryFilter("Kaikki tehtävät");
-                                sidebarRef.current?.close();
-                            }}
-                        >
-                            Kaikki tehtävät
-                        </button>
-                    </li>
+                    <button
+                        className="w-full rounded-t-lg p-2 text-left hover:bg-gray-200 dark:hover:bg-gray-800"
+                        onClick={() => {
+                            setCategoryFilter("Kaikki tehtävät");
+                            sidebarRef.current?.close();
+                        }}
+                    >
+                        Kaikki tehtävät
+                    </button>
                     {categories.map((cat) => {
                         return (
-                            <li
+                            <button
                                 key={cat}
-                                className="p-2 first:rounded-t-lg last:rounded-b-lg even:bg-gray-100 hover:bg-gray-200 dark:even:bg-gray-900 dark:hover:bg-gray-800"
+                                className="block w-full p-2 text-left first:rounded-t-lg last:rounded-b-lg even:bg-gray-100 hover:bg-gray-200 dark:even:bg-gray-900 dark:hover:bg-gray-800"
+                                onClick={() => {
+                                    setCategoryFilter(cat);
+                                    sidebarRef.current?.close();
+                                }}
                             >
-                                <button
-                                    onClick={() => {
-                                        setCategoryFilter(cat);
-                                        sidebarRef.current?.close();
-                                    }}
-                                >
-                                    {cat}
-                                </button>
-                            </li>
+                                {cat}
+                            </button>
                         );
                     })}
                 </ul>
