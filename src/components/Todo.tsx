@@ -22,7 +22,7 @@ const Todo = ({ todo }: Props) => {
                         await toggleTodoState(todo.id, !todo.finished);
                     }}
                 />
-                <p>{todo.task_name}</p>
+                <p>{todo.todo}</p>
             </div>
             <div className="flex items-center gap-2">
                 <p>

@@ -1,26 +1,26 @@
 "use client";
 
 import { Todos } from "@prisma/client";
-import TodoCategory from "./TodoCategory";
+import TodoGroup from "./TodoGroup";
 import NewTodoModal from "./NewTodoModal";
 
 interface Props {
     todos: Todos[];
-    categories: string[];
-    categoryFilter: string;
+    tags: string[];
+    tagFilter: string;
 }
 
-const TodoTable = ({ todos, categories, categoryFilter }: Props) => {
-    let todoCategories: any[] = [];
+const TodoTable = ({ todos, tags, tagFilter }: Props) => {
+    let todoTags: any[] = [];
 
-    categories.forEach((cat) => {
-        if (categoryFilter === "Kaikki tehtävät" || cat === categoryFilter)
-            todoCategories.push(
-                <TodoCategory
-                    key={cat}
-                    category={cat}
+    tags.forEach((tag) => {
+        if (tagFilter === "Kaikki tehtävät" || tag === tagFilter)
+            todoTags.push(
+                <TodoGroup
+                    key={tag}
+                    tag={tag}
                     todos={todos.filter((t) => {
-                        return cat === t.course_name;
+                        return tag === t.tag;
                     })}
                 />,
             );
@@ -28,8 +28,8 @@ const TodoTable = ({ todos, categories, categoryFilter }: Props) => {
 
     return (
         <div className="my-8 grid max-w-screen-sm flex-1 gap-6">
-            <NewTodoModal category={categoryFilter} />
-            {todoCategories}
+            <NewTodoModal tag={tagFilter} />
+            {todoTags}
         </div>
     );
 };

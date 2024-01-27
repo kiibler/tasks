@@ -16,14 +16,14 @@ interface Props {
 }
 
 const App = ({ todoRecords }: Props) => {
-    const todoCategories: string[] = [];
+    const todoTags: string[] = [];
     todoRecords.forEach((todo) => {
-        if (!todoCategories.includes(todo.course_name)) {
-            todoCategories.push(todo.course_name);
+        if (!todoTags.includes(todo.tag)) {
+            todoTags.push(todo.tag);
         }
     });
 
-    const [categoryFilter, setCategoryFilter] = useState("Kaikki tehtävät");
+    const [tagFilter, setTagFilter] = useState("Kaikki tehtävät");
     const sidebarRef = useRef<HTMLDialogElement>(null);
 
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -51,12 +51,12 @@ const App = ({ todoRecords }: Props) => {
                 <div className="mx-4 flex items-start justify-center gap-8">
                     <TodoTable
                         todos={todoRecords}
-                        categories={todoCategories}
-                        categoryFilter={categoryFilter}
+                        tags={todoTags}
+                        tagFilter={tagFilter}
                     />
                     <SideBar
-                        categories={todoCategories}
-                        setCategoryFilter={setCategoryFilter}
+                        tags={todoTags}
+                        setTagFilter={setTagFilter}
                         sidebarRef={sidebarRef}
                     />
                 </div>

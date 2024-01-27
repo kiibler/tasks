@@ -4,10 +4,10 @@ import { createNewTodo } from "@/lib/todoActions";
 import { useRef } from "react";
 
 interface Props {
-    category: string;
+    tag: string;
 }
 
-const NewTodoModal = ({ category }: Props) => {
+const NewTodoModal = ({ tag }: Props) => {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
@@ -50,7 +50,7 @@ const NewTodoModal = ({ category }: Props) => {
                 </form>
             </Dialog>
             <div className="flex items-center justify-between">
-                <h3 className="text-2xl">{category}</h3>
+                <h3 className="text-2xl">{tag}</h3>
                 <button
                     className="rounded-lg border bg-gray-900 p-2 text-white dark:border-gray-600"
                     onClick={() => dialogRef.current?.showModal()}

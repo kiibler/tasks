@@ -28,8 +28,8 @@ export const deleteTodo = async (id: string) => {
 
 export const createNewTodo = async (formData: FormData) => {
     const data = {
-        task_name: String(formData.get("todo")),
-        course_name: String(formData.get("tag")),
+        todo: String(formData.get("todo")),
+        tag: String(formData.get("tag")),
         due_date: null,
         finished: false,
     };

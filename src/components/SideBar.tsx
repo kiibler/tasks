@@ -2,31 +2,31 @@ import { Dispatch, RefObject, SetStateAction } from "react";
 import Dialog from "./Dialog";
 
 interface Props {
-    categories: string[];
-    setCategoryFilter: Dispatch<SetStateAction<string>>;
+    tags: string[];
+    setTagFilter: Dispatch<SetStateAction<string>>;
     sidebarRef: RefObject<HTMLDialogElement>;
 }
 
-const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
+const SideBar = ({ tags, setTagFilter, sidebarRef }: Props) => {
     return (
         <>
             <ul className="mt-8 hidden border-l border-gray-400 sm:block dark:border-gray-600">
                 <li className="px-2 pb-2">
                     <button
                         className="hover:underline"
-                        onClick={() => setCategoryFilter("Kaikki tehtävät")}
+                        onClick={() => setTagFilter("Kaikki tehtävät")}
                     >
                         Kaikki tehtävät
                     </button>
                 </li>
-                {categories.map((cat) => {
+                {tags.map((tag) => {
                     return (
-                        <li key={cat} className="px-2 pb-2">
+                        <li key={tag} className="px-2 pb-2">
                             <button
                                 className="hover:underline"
-                                onClick={() => setCategoryFilter(cat)}
+                                onClick={() => setTagFilter(tag)}
                             >
-                                {cat}
+                                {tag}
                             </button>
                         </li>
                     );
@@ -37,23 +37,23 @@ const SideBar = ({ categories, setCategoryFilter, sidebarRef }: Props) => {
                     <button
                         className="w-full rounded-t-lg p-2 text-left hover:bg-gray-200 dark:hover:bg-gray-800"
                         onClick={() => {
-                            setCategoryFilter("Kaikki tehtävät");
+                            setTagFilter("Kaikki tehtävät");
                             sidebarRef.current?.close();
                         }}
                     >
                         Kaikki tehtävät
                     </button>
-                    {categories.map((cat) => {
+                    {tags.map((tag) => {
                         return (
                             <button
-                                key={cat}
+                                key={tag}
                                 className="block w-full p-2 text-left first:rounded-t-lg last:rounded-b-lg even:bg-gray-100 hover:bg-gray-200 dark:even:bg-gray-900 dark:hover:bg-gray-800"
                                 onClick={() => {
-                                    setCategoryFilter(cat);
+                                    setTagFilter(tag);
                                     sidebarRef.current?.close();
                                 }}
                             >
-                                {cat}
+                                {tag}
                             </button>
                         );
                     })}
